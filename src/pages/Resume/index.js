@@ -69,7 +69,13 @@ const Right = () => {
             }}
           />
         </span>
-        <button>下载简历</button>
+        <button
+          onClick={() => {
+            exportResume();
+          }}
+        >
+          下载简历
+        </button>
         <div className="other-login">
           <div className="divider">
             <span className="line"></span>
@@ -138,6 +144,24 @@ const PandaSvg = () => (
   </svg>
 );
 const PandaIcon = (props) => <Icon component={PandaSvg} {...props} />;
+
+// 导出本地简历
+const exportResume = () => {
+  // 使用相对路径
+  const fileUrl = "/黄天2024.pdf";
+
+  // 创建一个隐藏的a标签
+  const link = document.createElement("a");
+  link.href = fileUrl;
+  link.download = "黄天2024.pdf"; // 设置下载文件名
+
+  // 将a标签添加到DOM并触发点击事件
+  document.body.appendChild(link);
+  link.click();
+
+  // 移除a标签
+  document.body.removeChild(link);
+};
 
 export default function Resume() {
   return (
