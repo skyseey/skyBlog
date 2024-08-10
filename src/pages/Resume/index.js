@@ -3,7 +3,7 @@ import "./index.scss";
 import { message, Tooltip } from "antd";
 import Icon, { WechatOutlined, GithubOutlined } from "@ant-design/icons";
 import { toPathFn, copyTextFn } from "@/utils/index.js";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 const Left = () => {
   const peopleRef = createRef(null);
   const sphereRef = createRef(null);
@@ -44,7 +44,7 @@ const Left = () => {
 
 const Right = () => {
   const menuList = [{ name: "博客" }, { name: "仓库" }];
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const copeFn = () => {
     copyTextFn("Y-SKY88").then((res) => {
       message.info("复制成功!");
@@ -68,7 +68,8 @@ const Right = () => {
           <span
             className="tips"
             onClick={() => {
-              navigate("/viewpdf");
+              // navigate("/viewpdf");
+              toPathFn("/黄天2024.pdf");
             }}
           >
             <PandaIcon
