@@ -1,8 +1,9 @@
 import React, { useEffect, createRef, useCallback } from "react";
 import "./index.scss";
-import { message } from "antd";
+import { message, Tooltip } from "antd";
 import Icon, { WechatOutlined, GithubOutlined } from "@ant-design/icons";
 import { toPathFn, copyTextFn } from "@/utils/index.js";
+import { useNavigate } from "react-router-dom";
 const Left = () => {
   const peopleRef = createRef(null);
   const sphereRef = createRef(null);
@@ -43,6 +44,7 @@ const Left = () => {
 
 const Right = () => {
   const menuList = [{ name: "博客" }, { name: "仓库" }];
+  const navigate = useNavigate();
   const copeFn = () => {
     copyTextFn("Y-SKY88").then((res) => {
       message.info("复制成功!");
@@ -62,12 +64,19 @@ const Right = () => {
           世上没有失败,
           <p>只是暂时停止成功</p>
         </h1>
-        <span className="tips">
-          <PandaIcon
-            style={{
-              fontSize: "32px",
-            }}
-          />
+        <span
+          className="tips"
+          onClick={() => {
+            navigate("/viewpdf");
+          }}
+        >
+          <Tooltip placement="top" title="在线预览简历">
+            <PandaIcon
+              style={{
+                fontSize: "32px",
+              }}
+            />
+          </Tooltip>
         </span>
         <button
           onClick={() => {

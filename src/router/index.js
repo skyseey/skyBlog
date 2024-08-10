@@ -8,6 +8,7 @@ import Resume from "./../pages/Resume/index";
 import Page500 from "./../pages/NotPage/NotServer.js";
 import Page403 from "./../pages/NotPage/NotAuth.js";
 import Page404 from "./../pages/NotPage/NotFound.js";
+import ViewPdf from "@/pages/Components/ViewPDF";
 
 // 路由表
 export const routes = [
@@ -18,6 +19,11 @@ export const routes = [
   {
     path: "/resume",
     element: <Resume />,
+  },
+  // PDF预览
+  {
+    path: "/viewpdf",
+    element: <ViewPdf />,
   },
   // 首页
   // {
