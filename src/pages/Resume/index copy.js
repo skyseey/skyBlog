@@ -64,20 +64,20 @@ const Right = () => {
           世上没有失败,
           <p>只是暂时停止成功</p>
         </h1>
-        <Tooltip placement="top" title="在线预览简历">
-          <span
-            className="tips"
-            onClick={() => {
-              navigate("/viewpdf");
-            }}
-          >
+        <span
+          className="tips"
+          onClick={() => {
+            navigate("/viewpdf");
+          }}
+        >
+          <Tooltip placement="top" title="在线预览简历">
             <PandaIcon
               style={{
                 fontSize: "32px",
               }}
             />
-          </span>
-        </Tooltip>
+          </Tooltip>
+        </span>
         <button
           onClick={() => {
             exportResume();
