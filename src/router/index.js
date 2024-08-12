@@ -4,6 +4,8 @@ import {
   // redirect,
   // Outlet,
 } from "react-router-dom";
+// 全局守卫
+import BeforeEach from "./BeforeEach";
 import Resume from "./../pages/Resume/index";
 import Page500 from "./../pages/NotPage/NotServer.js";
 import Page403 from "./../pages/NotPage/NotAuth.js";
@@ -18,7 +20,11 @@ export const routes = [
   },
   {
     path: "/resume",
-    element: <Resume />,
+    element: (
+      <BeforeEach>
+        <Resume />
+      </BeforeEach>
+    ),
   },
   // PDF预览
   {
@@ -70,6 +76,15 @@ export const routes = [
     element: <Navigate to="/404" />,
   },
 ];
+
+// 全局路由守卫
+export const RouterBeforEach = (Cp) => {
+  // useEffect(() => {
+  //   NProgress.done();
+  //   return () => NProgress.start();
+  // });
+  return <Cp />;
+};
 
 const router = createBrowserRouter(routes);
 
