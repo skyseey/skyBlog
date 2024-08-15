@@ -51,6 +51,8 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
-    "sass": "^1.66.1"
+    "image-webpack-loader": "^8.1.0",
+    "sass": "^1.66.1",
+    "url-loader": "^4.1.1"
   }
 }
