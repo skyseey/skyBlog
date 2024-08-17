@@ -53,6 +53,7 @@
     "@craco/craco": "^7.1.0",
     "image-webpack-loader": "^8.1.0",
     "sass": "^1.66.1",
+    "styled-components": "^6.1.12",
     "url-loader": "^4.1.1"
   }
 }

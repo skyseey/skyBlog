@@ -1,0 +1,11 @@
+.siderStyle{
+  width: 20%;
+  height: calc( 100vh - 74px );
+  scrollbar-width: thin;
+  scrollbar-color: unset;
+  background-color: #fff;
+  position: sticky;
+  top: 74px;
+  left: 0;
+  overflow-y: auto;
+}
