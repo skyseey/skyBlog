@@ -1,11 +1,3 @@
-/*
- * @Author: huangtian1_v 1246562955@qq.com
- * @Date: 2024-08-08 12:04:38
- * @LastEditors: huangtian1_v 1246562955@qq.com
- * @LastEditTime: 2024-08-17 20:19:12
- * @FilePath: \yellowsky-blog\src\router\index.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import {
   createBrowserRouter,
   Navigate,
@@ -24,6 +16,9 @@ import Blog from "@/pages/Blog";
 //
 import GitNode from "@/pages/Cp/Note/gitNode/index.js";
 import LinuxPage from "@/pages/Cp/Note/linuxPage/index.js";
+import Note from "@/pages/Cp/Note/index.js";
+import MyDemo from "@/pages/Cp/MyDemo/index.js";
+import Works from "@/pages/Cp/Works/index.js";
 
 // 路由表
 export const routes = [
@@ -58,7 +53,10 @@ export const routes = [
         meta: {
           title: "笔记",
         },
-        element: <Navigate to="/blog/bj/1" />,
+        // element: <Navigate to="/blog/bj/1" />,
+        element: (
+            <Note />
+        ),
         children: [
           {
             path: "/blog/bj/1",
@@ -76,12 +74,14 @@ export const routes = [
       },
       {
         path: "/blog/zp",
+        element: <Works />,
         meta: {
           title: "作品",
         },
       },
       {
         path: "/blog/demo",
+        element: <MyDemo />,
         meta: {
           title: "MyDemo",
         },

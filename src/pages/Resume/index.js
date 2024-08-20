@@ -3,7 +3,7 @@ import "./index.scss";
 import { message, Tooltip } from "antd";
 import Icon, { WechatOutlined, GithubOutlined } from "@ant-design/icons";
 import { toPathFn, copyTextFn } from "@/utils/index.js";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Left = () => {
   const peopleRef = createRef(null);
   const sphereRef = createRef(null);
@@ -43,8 +43,11 @@ const Left = () => {
 };
 
 const Right = () => {
-  const menuList = [{ name: "博客" }, { name: "仓库" }];
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const menuList = [{ name: "博客", path: "/blog/bj" }, { name: "仓库" }];
+  const pushFn = (res) => {
+    res.path&&navigate(res.path);
+  };
   const copeFn = () => {
     copyTextFn("Y-SKY88").then((res) => {
       message.info("复制成功!");
@@ -54,7 +57,13 @@ const Right = () => {
     <div className="right">
       <div className="top">
         {menuList.map((res) => (
-          <div className="top-item" key={res.name}>
+          <div
+            className="top-item"
+            key={res.name}
+            onClick={() => {
+              pushFn(res);
+            }}
+          >
             <span className="top-text">{res.name}</span>
           </div>
         ))}

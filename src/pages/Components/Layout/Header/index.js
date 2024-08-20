@@ -2,10 +2,12 @@ import "./index.scss";
 import React from "react";
 import Icon, { HomeTwoTone } from "@ant-design/icons";
 import { Layout, Tabs, Tooltip } from "antd";
+import { routes } from "@/router";
 // 数据导入
-import { headerData } from "@/utils/data";
 // import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { getPathRoutesFn } from "@/utils/index";
+import { useEffect, useState } from "react";
 const { Header: MyHeader } = Layout;
 
 const PandaSvg = () => (
@@ -45,6 +47,7 @@ const PandaSvg = () => (
     />
   </svg>
 );
+
 const PandaIcon = (props) => <Icon component={PandaSvg} {...props} />;
 
 const MenuIcon = () => {
@@ -81,10 +84,29 @@ const MenuIcon = () => {
   );
 };
 
-const Header = ({ changeFn }) => {
+const Header = () => {
+  const navigate = useNavigate();
+  // 当前左边菜单
+  const [sideMenuValue, setSideMenuValue] = useState([]);
   const onChange = (key) => {
-    changeFn && changeFn(key);
+    key && navigate(key);
   };
+  const getMenu = () => {
+    console.log(getPathRoutesFn(routes).children);
+    let menu = [];
+    if (getPathRoutesFn(routes) && getPathRoutesFn(routes).children) {
+      menu = getPathRoutesFn(routes).children.map((v) => {
+        return {
+          key: v.path,
+          label: v.meta.title,
+        };
+      });
+    }
+    setSideMenuValue(menu);
+  };
+  useEffect(() => {
+    getMenu();
+  }, []);
   return (
     <MyHeader
       style={{
@@ -105,7 +127,11 @@ const Header = ({ changeFn }) => {
           SkyBlog
         </div>
         <div className="right">
-          <Tabs defaultActiveKey="bj" items={headerData} onChange={onChange} />
+          <Tabs
+            defaultActiveKey="bj"
+            items={sideMenuValue}
+            onChange={onChange}
+          />
           <MenuIcon></MenuIcon>
         </div>
       </div>
