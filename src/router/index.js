@@ -4,7 +4,7 @@ import {
   // redirect,
   // Outlet,
 } from "react-router-dom";
-import { UserOutlined } from "@ant-design/icons";
+import { BookTwoTone } from "@ant-design/icons";
 // 全局守卫
 import BeforeEach from "./BeforeEach";
 import Resume from "./../pages/Resume/index";
@@ -14,8 +14,8 @@ import Page404 from "./../pages/NotPage/NotFound.js";
 import ViewPdf from "@/pages/Components/ViewPDF";
 import Blog from "@/pages/Blog";
 //
-import GitNode from "@/pages/Cp/Note/gitNode/index.js";
-import LinuxPage from "@/pages/Cp/Note/linuxPage/index.js";
+import ReatReduxNode from "@/pages/Cp/Note/ReatReduxNode/index.js";
+import Often from "@/pages/Cp/Note/often/index.js";
 import Note from "@/pages/Cp/Note/index.js";
 import MyDemo from "@/pages/Cp/MyDemo/index.js";
 import Works from "@/pages/Cp/Works/index.js";
@@ -54,21 +54,19 @@ export const routes = [
           title: "笔记",
         },
         // element: <Navigate to="/blog/bj/1" />,
-        element: (
-            <Note />
-        ),
+        element: <Note />,
         children: [
           {
             path: "/blog/bj/1",
-            icon: <UserOutlined />,
-            title: "git笔记",
-            element: <GitNode />,
+            icon: <BookTwoTone />,
+            title: "常用笔记",
+            element: <Often />,
           },
           {
             path: "/blog/bj/2",
-            icon: <UserOutlined />,
-            title: "linux指令",
-            element: <LinuxPage />,
+            icon: <BookTwoTone />,
+            title: "React状态管理",
+            element: <ReatReduxNode />,
           },
         ],
       },

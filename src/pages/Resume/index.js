@@ -46,7 +46,8 @@ const Right = () => {
   const navigate = useNavigate();
   const menuList = [{ name: "博客", path: "/blog/bj" }, { name: "仓库" }];
   const pushFn = (res) => {
-    res.path&&navigate(res.path);
+    res.path && navigate(res.path);
+    if (!res.path)  message.info("想要源码，先交个朋友😂");
   };
   const copeFn = () => {
     copyTextFn("Y-SKY88").then((res) => {
