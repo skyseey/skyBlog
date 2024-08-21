@@ -112,7 +112,6 @@ const Header = () => {
       style={{
         display: "flex",
         alignItems: "center",
-        background: "#fff",
         marginBottom: "10px",
       }}
       className="headerStyle"

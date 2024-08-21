@@ -6,6 +6,7 @@
     0 1px 6px -1px rgba(0, 0, 0, 0.02),
     0 2px 4px 0 rgba(0, 0, 0, 0.02);
   backdrop-filter: blur(8px);
+  overflow: hidden;
   .main{
     width: 100%;
     height: 100%;
@@ -63,5 +64,20 @@
         height: 100%;
       }
     }
-  }
+  }   
 }
+
+// 实现仿造element-plus
+.ant-layout-header {
+  // 实现仿造element-plus
+  background:radial-gradient(transparent 1px, #fff 1px) 4px 4px;
+  background-image: radial-gradient(transparent 1px, #fff 1px);
+  background-size: 4px 4px;
+  backdrop-filter: saturate(50%) blur(4px);
+}
+
+
+// 实现透明效果
+// .ant-layout-header {
+//   background:rgba(255,255,255,0.5) !important ;
+// }
