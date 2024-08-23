@@ -12,6 +12,7 @@ import { Outlet } from "react-router-dom";
 import "./index.scss";
 // 导入组件
 import Header from "@/pages/Components/Layout/Header";
+import ToTop from "../Components/ToTop";
 const Blog = () => {
   return (
     <div className="layoutStyle">
@@ -19,6 +20,8 @@ const Blog = () => {
       <div className="contentMainStyle">
         <Outlet />
       </div>
+
+      <ToTop />
     </div>
   );
 };
