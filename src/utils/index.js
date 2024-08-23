@@ -1,3 +1,11 @@
+/*
+ * @Author: huangtian1_v 1246562955@qq.com
+ * @Date: 2024-08-09 17:06:33
+ * @LastEditors: huangtian1_v 1246562955@qq.com
+ * @LastEditTime: 2024-08-23 17:06:10
+ * @FilePath: \yellowsky-blog\src\utils\index.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 // 导航去其它站点
 const toPathFn = (url) => {
   url && (window.location.href = url);
@@ -61,4 +69,15 @@ const findCp = (list, key) => {
   return null;
 };
 
-export { toPathFn, copyTextFn, toZero, getPathRoutesFn, findCp };
+// 设置主题
+const setTheme = (theme) => {
+  const root = document.documentElement;
+  if (!root) return;
+  if (theme.payload) {
+    root.style.setProperty("--BgColorLight", "#fff");
+  } else {
+    root.style.setProperty("--BgColorLight", "aliceblue");
+  }
+};
+
+export { toPathFn, copyTextFn, toZero, getPathRoutesFn, findCp, setTheme };

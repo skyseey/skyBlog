@@ -1,9 +1,15 @@
 import React, { useEffect, createRef, useCallback } from "react";
 import "./index.scss";
-import { message, Tooltip } from "antd";
-import Icon, { WechatOutlined, GithubOutlined } from "@ant-design/icons";
-import { toPathFn, copyTextFn } from "@/utils/index.js";
+import { message, Tooltip, Switch } from "antd";
+import Icon, {
+  WechatOutlined,
+  GithubOutlined,
+  SunOutlined,
+  MoonOutlined,
+} from "@ant-design/icons";
+import { toPathFn, copyTextFn, setTheme } from "@/utils/index.js";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 const Left = () => {
   const peopleRef = createRef(null);
   const sphereRef = createRef(null);
@@ -47,7 +53,7 @@ const Right = () => {
   const menuList = [{ name: "博客", path: "/blog/bj" }, { name: "仓库" }];
   const pushFn = (res) => {
     res.path && navigate(res.path);
-    if (!res.path)  message.info("想要源码，先交个朋友😂");
+    if (!res.path) message.info("想要源码，先交个朋友😂");
   };
   const copeFn = () => {
     copyTextFn("Y-SKY88").then((res) => {
@@ -126,6 +132,32 @@ const Right = () => {
   );
 };
 
+const ChangeTheme = () => {
+  const dispatch = useDispatch();
+  const globalTheme = useSelector((state) => {
+    return state.common.globalTheme;
+  });
+
+  const changeFn = (val) => {
+    dispatch({ type: "common/updateGlobalTheme", payload: val });
+  };
+
+  useEffect(() => {
+    setTheme(globalTheme);
+  }, [globalTheme]);
+
+  return (
+    <div className="changethemeStyle">
+      <Switch
+        defaultChecked={globalTheme.payload}
+        checkedChildren={<SunOutlined />}
+        unCheckedChildren={<MoonOutlined />}
+        onChange={changeFn}
+      />
+    </div>
+  );
+};
+
 const PandaSvg = () => (
   <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor">
     <title>Panda icon</title>
@@ -188,6 +220,7 @@ export default function Resume() {
     <div className="content">
       <Left></Left>
       <Right></Right>
+      <ChangeTheme />
     </div>
   );
 }

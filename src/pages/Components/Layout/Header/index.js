@@ -92,7 +92,6 @@ const Header = () => {
     key && navigate(key);
   };
   const getMenu = () => {
-    console.log(getPathRoutesFn(routes).children);
     let menu = [];
     if (getPathRoutesFn(routes) && getPathRoutesFn(routes).children) {
       menu = getPathRoutesFn(routes).children.map((v) => {

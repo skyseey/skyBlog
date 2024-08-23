@@ -29,7 +29,7 @@ export default function Note() {
           menu = array[index].children.map((v) => {
             return {
               key: v.path,
-              label: v.title,
+              label: <h4>{v.title}</h4>,
               icon: v.icon,
             };
           });

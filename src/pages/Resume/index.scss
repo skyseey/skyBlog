@@ -7,8 +7,7 @@
   transform: translate(-50%, -50%);
   z-index: 1;
   overflow: hidden;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--BgColorLight);
   display: flex;
   user-select: none;
   .left {
@@ -230,6 +229,15 @@
         }
       }
     }
+  }
+
+  .changethemeStyle{
+    position: absolute;
+    right: 38px;
+    top: 38px;
+    width: fit-content;
+    height: fit-content;
+    z-index: 99;
   }
 }
 

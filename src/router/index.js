@@ -59,13 +59,13 @@ export const routes = [
           {
             path: "/blog/bj/1",
             icon: <BookTwoTone />,
-            title: "常用笔记",
+            title: "常用笔记🖊",
             element: <Often />,
           },
           {
             path: "/blog/bj/2",
             icon: <BookTwoTone />,
-            title: "React状态管理",
+            title: "React状态管理💪",
             element: <ReatReduxNode />,
           },
         ],
