@@ -84,11 +84,24 @@ const MenuIcon = () => {
   );
 };
 
+const extractPathBeforeThirdSlash = (path) => {
+  let newpath = path.split("/");
+  if (path && newpath.length > 3) {
+    newpath.pop();
+    return newpath.join("/");
+  }
+  return path;
+};
+
 const Header = () => {
   const navigate = useNavigate();
   // 当前左边菜单
   const [sideMenuValue, setSideMenuValue] = useState([]);
+  const [defaultActiveKey, setDefaultActiveKey] = useState(
+    extractPathBeforeThirdSlash(window.location.pathname)
+  );
   const onChange = (key) => {
+    setDefaultActiveKey(key);
     key && navigate(key);
   };
   const getMenu = () => {
@@ -106,6 +119,7 @@ const Header = () => {
   useEffect(() => {
     getMenu();
   }, []);
+
   return (
     <MyHeader
       style={{
@@ -126,7 +140,8 @@ const Header = () => {
         </div>
         <div className="right">
           <Tabs
-            defaultActiveKey="bj"
+            activeKey={defaultActiveKey}
+            defaultActiveKey={defaultActiveKey}
             items={sideMenuValue}
             onChange={onChange}
           />
