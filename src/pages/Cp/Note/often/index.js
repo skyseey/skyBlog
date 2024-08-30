@@ -12,7 +12,7 @@ import md from "@/assets/MDDocument/index.md"; // 这里实际上不是文件内
 export default function LinuxPage() {
   return (
     <div>
-      <SPELDocument md={md} />
+      <SPELDocument md={md} openWatermark={true} />
     </div>
   );
 }

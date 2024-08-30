@@ -7,6 +7,7 @@
     0 2px 4px 0 rgba(0, 0, 0, 0.02);
   backdrop-filter: blur(8px);
   overflow: hidden;
+  z-index: 999;
   .main{
     width: 100%;
     height: 100%;

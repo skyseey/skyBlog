@@ -9,7 +9,7 @@ import rehypeRewrite from "rehype-rewrite";
 import remarkUnwrapImages from "remark-unwrap-images";
 
 import { useEffect, useState } from "react";
-import { message } from "antd";
+import { message, Watermark } from "antd";
 // const input = "# This is a header\n\nAnd this is a paragraph";
 const getData = (url) => {
   return new Promise((resolve, reject) => {
@@ -33,7 +33,7 @@ const myRewrite = (node, index, parent) => {
     node.properties.src = img;
   }
 };
-const SPELDocument = ({ md }) => {
+const SPELDocument = ({ md, openWatermark = false }) => {
   const [value, setValue] = useState("");
   useEffect(() => {
     if (!md) {
@@ -45,13 +45,25 @@ const SPELDocument = ({ md }) => {
   });
   return (
     <article className="markdown-body">
-      <ReactMarkdown
-        rehypePlugins={[rehypeRaw, [rehypeRewrite, { rewrite: myRewrite }]]}
-        remarkPlugins={[
-          [remarkGfm, remarkUnwrapImages, { singleTilde: false }],
-        ]}
-        children={value}
-      ></ReactMarkdown>
+      {openWatermark ? (
+        <Watermark content="YellowSky" zIndex={0}>
+          <ReactMarkdown
+            rehypePlugins={[rehypeRaw, [rehypeRewrite, { rewrite: myRewrite }]]}
+            remarkPlugins={[
+              [remarkGfm, remarkUnwrapImages, { singleTilde: false }],
+            ]}
+            children={value}
+          ></ReactMarkdown>
+        </Watermark>
+      ) : (
+        <ReactMarkdown
+          rehypePlugins={[rehypeRaw, [rehypeRewrite, { rewrite: myRewrite }]]}
+          remarkPlugins={[
+            [remarkGfm, remarkUnwrapImages, { singleTilde: false }],
+          ]}
+          children={value}
+        ></ReactMarkdown>
+      )}
     </article>
   );
 };
