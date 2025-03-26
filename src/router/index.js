@@ -1,5 +1,5 @@
 import {
-  createBrowserRouter,
+  createHashRouter,
   Navigate,
   // redirect,
   // Outlet,
@@ -114,6 +114,7 @@ export const RouterBeforEach = (Cp) => {
   return <Cp />;
 };
 
-const router = createBrowserRouter(routes);
+// const router = createBrowserRouter(routes);
+const router = createHashRouter(routes);
 
 export default router;

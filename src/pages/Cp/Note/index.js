@@ -23,7 +23,7 @@ export default function Note() {
       let array = getPathRoutesFn(routes).children;
       for (let index = 0; index < array.length; index++) {
         if (
-          window.location.pathname.includes(array[index].path) &&
+          window.location.hash.includes(array[index].path) &&
           array[index].children
         ) {
           menu = array[index].children.map((v) => {
