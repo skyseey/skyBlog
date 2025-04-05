@@ -1,0 +1,12 @@
+.works-all-style{
+  width: 100%;
+  height:auto;
+  box-sizing: border-box;
+  padding:20px 100px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px;
+  user-select: none;
+}
