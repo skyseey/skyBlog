@@ -10,6 +10,10 @@
   background: var(--BgColorLight);
   display: flex;
   user-select: none;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 20px solid #fff;
+  border-radius: 80px;
   .left {
     flex: 1;
     position: relative;

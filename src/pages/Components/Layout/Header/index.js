@@ -5,7 +5,7 @@ import { Layout, Tabs, Tooltip } from "antd";
 import { routes } from "@/router";
 // 数据导入
 // import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { getPathRoutesFn } from "@/utils/index";
 import { useEffect, useState } from "react";
 const { Header: MyHeader } = Layout;
@@ -95,11 +95,17 @@ const extractPathBeforeThirdSlash = (path) => {
 
 const Header = () => {
   const navigate = useNavigate();
+  const useLocationData = useLocation();
   // 当前左边菜单
   const [sideMenuValue, setSideMenuValue] = useState([]);
   const [defaultActiveKey, setDefaultActiveKey] = useState(
     extractPathBeforeThirdSlash(window.location.pathname)
   );
+  // console.log(window.location, useLocationData.pathname);
+
+  useEffect(() => {
+    setDefaultActiveKey(extractPathBeforeThirdSlash(useLocationData.pathname));
+  }, [useLocationData.pathname]);
   const onChange = (key) => {
     setDefaultActiveKey(key);
     key && navigate(key);
