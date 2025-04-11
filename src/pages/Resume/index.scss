@@ -117,8 +117,10 @@
         font-size: 56px;
         text-align: start;
         letter-spacing: 0px;
-        color: #3451b2;
+        color: #0000;
         font-weight: 800;
+        background-clip: text;
+        background-image: linear-gradient(to right, #09c8ce, #eb2f96);
         >p{
           color: #3c3c43;
         }
