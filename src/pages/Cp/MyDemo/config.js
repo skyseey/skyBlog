@@ -17,4 +17,9 @@ export const demosList = [
     content: ["· 可编辑table", "· 点击更多体验"],
     component: () => import("@/pages/Cp/MyDemo/components/EditableTable/index"),
   },
+  {
+    title: "CustomForm",
+    content: ["· 自定义表单", "· 点击更多体验"],
+    component: () => import("@/pages/Cp/MyDemo/components/CustomForm/index"),
+  },
 ];

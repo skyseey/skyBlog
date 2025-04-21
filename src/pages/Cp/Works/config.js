@@ -1,3 +1,11 @@
+/*
+ * @Author: huangtian1_v 1246562955@qq.com
+ * @Date: 2025-04-05 18:15:58
+ * @LastEditors: huangtian1_v 1246562955@qq.com
+ * @LastEditTime: 2025-04-17 22:21:30
+ * @FilePath: \yellowsky-blog\src\pages\Cp\Works\config.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 export const worksList = [
   {
     title: "迎客官网",
@@ -33,6 +41,12 @@ export const worksList = [
     title: "商机运营",
     desc: "商机运营大屏",
     img: require("@/assets/images/works/商机运营.png"),
+    url: "",
+  },
+  {
+    title: "河南商机大屏",
+    desc: "河南商机大屏",
+    img: require("@/assets/images/works/河南大屏.png"),
     url: "",
   },
 ];
