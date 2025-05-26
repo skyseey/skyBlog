@@ -2,7 +2,7 @@
  * @Author: huangtian1_v 1246562955@qq.com
  * @Date: 2025-04-05 20:35:04
  * @LastEditors: huangtian1_v 1246562955@qq.com
- * @LastEditTime: 2025-04-11 15:50:12
+ * @LastEditTime: 2025-05-24 16:45:53
  * @FilePath: \yellowsky-blog\src\pages\Cp\MyDemo\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -21,5 +21,10 @@ export const demosList = [
     title: "CustomForm",
     content: ["· 自定义表单", "· 点击更多体验"],
     component: () => import("@/pages/Cp/MyDemo/components/CustomForm/index"),
+  },
+  {
+    title: "Editor",
+    content: ["· Editor富文本编辑器", "· 点击更多体验"],
+    component: () => import("@/pages/Cp/MyDemo/components/Editor/index"),
   },
 ];
